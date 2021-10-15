@@ -8,7 +8,12 @@ function createApp() {
   const titleComponent = createTitleComponent();
 
   const enterToDo = createFormElement(function (task) {
-    let taskList = createElement("p", { className: "tasks" }, [`${task}`]);
+    let taskList = createElement("div", { className: "tasklist" }, [
+      createElement("label", { className: "tasks" }, [
+        task,
+        createElement("input", { type: "checkbox" }),
+      ]),
+    ]);
     appElement.append(taskList);
   });
 
